@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    
+}
+
+.photo {
+    width: 180px;
+    height: 260px;
+    
+}
+
+.title {
+    width: 700px;
+}
+
+.divBtn {
+    width: 800px;
+    height: 100px;
+}
+
+button {
+width: 180px;
+height: 40px;
+}
