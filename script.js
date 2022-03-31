@@ -1,6 +1,6 @@
 const container = document.querySelector(".container"); //мы приготовили контейнер в html файле и
 // мы черех querySelector берем контейнер
-const containerBtn = document.querySelector(".containerBtn");
+
 
 //Метод $.get() загружает данные с сервера с помощью HTTP-запроса GET.
 //res -> это результат, всегда на первую переменную передается, еще есть err, при ошибке err вызываем
@@ -34,46 +34,27 @@ function get() {
                 const h3 = document.createElement("h3") // создаем h2 элемент
                 const h2 = document.createElement("h2")
                 const p = document.createElement("p")
-                const a = document.createElement("a")
+
               
-                const divBtn = document.createElement("div")
-                const buttonall = document.createElement("button")
-                const buttonlaptops = document.createElement("button")
-                const buttonphones = document.createElement("button")
-                const buttontv = document.createElement("button")
+               
 
 
-                div.setAttribute("class", "cart") // мы создаем для div класс cart
-                img.setAttribute("class", "photo")
-                h3.setAttribute("class", "title")
+                div.className = "cart" // мы создаем для div класс cart
+                img.className = "photo"
+                h3.className = "title"
 
-                divBtn.setAttribute("class", "divBtn")
-                buttonall.setAttribute("class", "click_all")
-                buttonlaptops.setAttribute("class", "click_laptops")
-                buttonphones.setAttribute("class", "click_phones")
-                buttontv.setAttribute("class", "click_tv")
+               
 
 
-                buttonall.innerText = 'All'
-                buttonlaptops.innerText = 'laptops'
-                buttonphones.innerText = 'phones'
-                buttontv.innerText = 'tv'
-
+               
                 //aall.setAttribute("href", category)
                 img.setAttribute('src', element.img); // мы обращаемся к элементу img с ключом img
                 h3.innerHTML = `${element.desc}` // мы обращаемся к элементу h2 с ключом desc
                 h2.innerHTML = `${element.price}` //мы обращаемся к элементу h3 с ключом price
                 p.innerHTML = `${element.title}`//мы обращаемся к элементу p с ключом title
 
-                buttonall.appendChild(a)
-                divBtn.appendChild(buttonall)
-                buttonlaptops.appendChild(a)
-                divBtn.appendChild(buttonlaptops)
-                buttonphones.appendChild(a)
-                divBtn.appendChild(buttonphones)
-                buttontv.appendChild(a)
-                divBtn.appendChild(buttontv)
-                containerBtn.appendChild(divBtn)
+               
+               
 
 
                 div.appendChild(img)
@@ -88,6 +69,20 @@ function get() {
             });
                
             })
+            .catch(() => {
+                console.log('Error');
+            })
+
+            data = data.join("");
+            productsInner.innerHTML = data;
+            return data;
 }
 
 get();
+
+
+
+
+// Промис, возвращённый catch (), отклоняется, если onRejected выдаёт 
+// ошибку(throw) или возвращает Promise, который был отклонён; В противном случае Promise, 
+// возвращаемый catch () имеет статус  выполнено  (fulfilled)
